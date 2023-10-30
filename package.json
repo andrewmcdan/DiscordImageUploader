@@ -8,8 +8,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "'"
+    "url": "git+https://github.com/andrewmcdan/DiscordImageUploader.git"
   },
-  "author": "",
-  "license": "ISC"
+  "author": "https://github.com/andrewmcdan/",
+  "license": "GPL-3.0-or-later",
+  "homepage": "https://github.com/andrewmcdan/DiscordImageUploader#readme",
+  "bugs": {
+    "url": "https://github.com/andrewmcdan/DiscordImageUploader/issues"
+  },
+  "keywords": [
+    "discord",
+    "discord uploader",
+    "image uploader",
+    "uploader"
+  ]
 }
