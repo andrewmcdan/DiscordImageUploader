@@ -1,4 +1,4 @@
-const fs = require('fs');
+import fs from "fs";
 
 let discord_token = null;
 let jobID = 1;
@@ -193,4 +193,4 @@ const uploadFileToDiscordWithMessage = async (fileName, channel_id, message = ""
     });
 };
 
-module.exports = DiscordImageUploader;
+export default DiscordImageUploader;

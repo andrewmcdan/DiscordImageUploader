@@ -1,25 +1,33 @@
 {
-  "name": "discordimageuploader",
-  "version": "0.1.1",
-  "description": "Upload images to Discord",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/andrewmcdan/DiscordImageUploader.git"
-  },
-  "author": "https://github.com/andrewmcdan/",
-  "license": "GPL-3.0-or-later",
-  "homepage": "https://github.com/andrewmcdan/DiscordImageUploader#readme",
-  "bugs": {
-    "url": "https://github.com/andrewmcdan/DiscordImageUploader/issues"
-  },
-  "keywords": [
-    "discord",
-    "discord uploader",
-    "image uploader",
-    "uploader"
-  ]
+    "name": "discordimageuploader",
+    "version": "0.1.1",
+    "description": "Upload images to Discord",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/andrewmcdan/DiscordImageUploader.git"
+    },
+    "author": "https://github.com/andrewmcdan/",
+    "license": "GPL-3.0-or-later",
+    "homepage": "https://github.com/andrewmcdan/DiscordImageUploader#readme",
+    "bugs": {
+        "url": "https://github.com/andrewmcdan/DiscordImageUploader/issues"
+    },
+    "keywords": [
+        "discord",
+        "discord uploader",
+        "image uploader",
+        "uploader"
+    ],
+    "type": "commonjs",
+    "main": "./index.js",
+    "exports": {
+        ".": {
+            "import": "./index.mjs",
+            "require": "./index.js"
+        }
+    }
 }
