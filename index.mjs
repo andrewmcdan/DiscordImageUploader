@@ -193,4 +193,4 @@ const uploadFileToDiscordWithMessage = async (fileName, channel_id, message = ""
     });
 };
 
-export default DiscordImageUploader;
+module.exports = DiscordImageUploader;
