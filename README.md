@@ -17,22 +17,23 @@ const DiscordImageUploader = require('discordimageuploader');
  * @param {boolean} waitForUpload - Whether or not to wait for the upload to finish before moving on to the next job. If set to false, you can upload many files very quickly, but at the risk of getting rate limited or banned. Default is true.
  * @param {number} waitTime - How long to wait between jobs if waitForUpload is set to true. This is in seconds. Default is 1 second.
  */
-var uploader = DiscordImageUploader("YOUR_DISCORD_TOKEN_HERE", waitForUpload = true, waitTime = 1);
+let uploader = DiscordImageUploader("YOUR_DISCORD_TOKEN_HERE", waitForUpload = true, waitTime = 1);
 
-uploader.uploadFile("test.jpg", "1159893559839830090", "Test message").then((job) => {
-    // job is an object that contains the jobID and a promise that resolves to the URL of the uploaded image.
-    console.log("Job: ", job);
-    job.promise.then((url) => {
-        console.log("URL: ", url, "\njobID: ", job.jobID);
-        console.log(uploader.getJob(job.jobID));
-    }).catch((e) => {
-        console.log("Error: ", e);
-    });
+let jobInitObj = uploader.uploadFile("test.jpg", "1159893559839830090", "Test message");
+// jobInitObj is an object that contains the jobID and the promise.
+// {promise: Promise, jobID: number}
+
+jobInitObj.promise.then((url) => {
+    console.log("Upload Complete!");
+    console.log("URL: ", url);
+    console.log("jobID: ", jobInitObj.jobID);
 }).catch((e) => {
     console.log("Error: ", e);
 });
 
-let job = getJob(jobID); // Returns the job object with the specified jobID.
+let job = getJob(jobInitObj.jobID); // Returns the job object with the specified jobID.
+// job is an object that contains the status, jobID, file name, channel ID, message, and URL (if the file was successfully uploaded).
+console.log({job});
 ```
 
 ## Example
@@ -47,14 +48,12 @@ uploader = new DiscordImageUploader("YOUR_DISCORD_TOKEN_HERE");
 // This example will upload 1 image to Discord 10 times.
 const doStuff = async () => {
     for (let i = 1; i <= 10; i++) {
-        uploader.uploadFile("test.jpg", "1159893559839830090", "Test message: " + i).then((job) => {
-            console.log("Job: ", job);
-            job.promise.then((url) => {
-                console.log("URL: ", url, "\njobID: ", job.jobID);
-                console.log(uploader.getJob(job.jobID));
-            }).catch((e) => {
-                console.log("Error: ", e);
-            });
+        let jobInitObj = uploader.uploadFile("test.jpg", "1159893559839830090", "Test message" + i);
+
+        jobInitObj.promise.then((url) => {
+            console.log("Upload Complete!");
+            console.log("URL: ", url);
+            console.log("jobID: ", jobInitObj.jobID);
         }).catch((e) => {
             console.log("Error: ", e);
         });
@@ -67,6 +66,7 @@ while(true) {}
 
 ## License
 GPL-3.0 License - Look up the license on the [GNU website](https://www.gnu.org/licenses/gpl-3.0.en.html).
+
 My take on it is this: if you use, modify or redistribute this code, you must make your code open source and you must give credit to me. Don't steal it. Don't be a jerk.
 
 ## Contributing

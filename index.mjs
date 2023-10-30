@@ -27,7 +27,7 @@ class DiscordImageUploader{
      * @param {string} message - Optional message to send with the file
      * @returns Object with a promise and a jobID. The promise will resolve with the URL of the uploaded file. The jobID can be used to check the status of the job.
      */
-    async uploadFile(fileName, channel_id, message = ""){
+    uploadFile(fileName, channel_id, message = ""){
         return {promise: new Promise(async (resolve, reject) => {
             // check for token
             if(discord_token == null) reject("No token set");
