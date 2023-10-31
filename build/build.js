@@ -20,6 +20,6 @@ matches.forEach((match) => {
     commonJS = commonJS.replace(match, replacement);
 });
 
-commonJS.replace("module.exports = ", "export default ");
+commonJS = commonJS.replace("module.exports =", "export default");
 
 fs.writeFileSync(modulePath, commonJS);
