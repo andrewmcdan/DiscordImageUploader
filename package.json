@@ -1,6 +1,6 @@
 {
     "name": "discordimageuploader",
-    "version": "0.1.2",
+    "version": "0.1.3",
     "description": "Upload images to Discord",
     "main": "index.js",
     "scripts": {
